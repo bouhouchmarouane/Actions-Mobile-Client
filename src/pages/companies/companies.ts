@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {CompanyService} from "../../services/company.service";
 import {Company} from "../../interfaces/company";
+import {CompanyDetailsPage} from "../company-details/company-details";
 
 /**
  * Generated class for the CompaniesPage page.
@@ -39,5 +40,9 @@ export class CompaniesPage {
         return (c.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
       })
     }
+  }
+
+  detailsCompany(c){
+    this.navCtrl.push(CompanyDetailsPage, {company: c});
   }
 }

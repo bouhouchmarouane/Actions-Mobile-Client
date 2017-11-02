@@ -10,12 +10,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {CompanyService} from "../services/company.service";
 import {HttpModule} from "@angular/http";
 import {CompaniesPage} from "../pages/companies/companies";
+import {CompanyDetailsPage} from "../pages/company-details/company-details";
 
 @NgModule({
   declarations: [
     MyApp,
     ListPage,
-    CompaniesPage
+    CompaniesPage,
+    CompanyDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import {CompaniesPage} from "../pages/companies/companies";
   entryComponents: [
     MyApp,
     ListPage,
-    CompaniesPage
+    CompaniesPage,
+    CompanyDetailsPage
   ],
   providers: [
     StatusBar,
