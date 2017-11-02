@@ -86,3 +86,10 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+// Overrided variables
+//---------------------------------------------------
+
+$toolbar-md-background: color($colors, primary);
+$toolbar-background: color($colors, primary);

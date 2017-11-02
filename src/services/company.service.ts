@@ -14,7 +14,9 @@ export class CompanyService {
 
   getCompanies() {
     return this.http.get(companiesUrl)
-      .map(response => response.json()._embedded.companies)
+      .toPromise()
+      .then(response => response.json()._embedded.companies)
+      .catch(this.handleError);
   }
 
   getCompany(id: number) {
