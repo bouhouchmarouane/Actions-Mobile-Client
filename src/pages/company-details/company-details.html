@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="{{company.logo}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{company.name}}
+      </ion-card-title>
+      <p>
+        {{company.catchphrase}}
+      </p>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left small full color="danger">
+            <ion-icon name="close"></ion-icon>
+            <div>Delete</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button full icon-left small>
+            <ion-icon name="folder-open"></ion-icon>
+            <div>Operations</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button full icon-left small>
+            <ion-icon name="navigate"></ion-icon>
+            <div>Navigate</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label><b>CEO</b></ion-label>
+      <div item-content>
+        {{company.ceo}}
+      </div>
+    </ion-item>
+    <ion-item text-wrap>
+      <b>Address</b>
+      <p>
+        {{company.address}}
+      </p>
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Turnover</b></ion-label>
+      <div item-content>
+        {{company.turnover}}
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Industry</b></ion-label>
+      <div item-content>
+        {{company.industry}}
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label><b>URL</b></ion-label>
+      <div item-content>
+        <a href="{{company.url}}">{{company.url}}</a>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
