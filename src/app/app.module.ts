@@ -21,7 +21,11 @@ import {CompanyDetailsPage} from "../pages/company-details/company-details";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      modalEnter: 'modal-slide-in',
+      modalLeave: 'modal-slide-out',
+      pageTransition: 'ios-transition'
+    }),
     HttpModule
   ],
   bootstrap: [IonicApp],

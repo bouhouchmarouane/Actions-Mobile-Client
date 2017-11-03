@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {AlertController, NavController, NavParams} from 'ionic-angular';
 import {Company} from "../../interfaces/company";
 import {CompanyService} from "../../services/company.service";
-import {Http} from "@angular/http";
 
 @Component({
   selector: 'page-company-details',
@@ -11,6 +10,7 @@ import {Http} from "@angular/http";
 export class CompanyDetailsPage {
 
   private company: Company;
+  public back = (url) => this.navCtrl.pop({animate: true, animation:'ios-transition', direction: 'back'});
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public companyService: CompanyService, public alertCtrl: AlertController) {
     this.company = this.navParams.data.company;

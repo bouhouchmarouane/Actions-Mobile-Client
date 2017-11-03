@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Details</ion-title>
   </ion-navbar>
 </ion-header>
@@ -14,8 +11,8 @@
       <ion-card-title>
         {{company.name}}
       </ion-card-title>
-      <p>
-        {{company.catchphrase}}
+      <p class="text-right">
+        <i>{{company.catchphrase}}</i>
       </p>
       <ion-row>
         <ion-col>
@@ -40,35 +37,25 @@
     </ion-card-content>
   </ion-card>
   <ion-list>
-    <ion-item>
-      <ion-label><b>CEO</b></ion-label>
-      <div item-content>
-        {{company.ceo}}
-      </div>
+    <ion-item text-wrap>
+      <b>CEO</b>
+      <p>{{company.ceo}}</p>
     </ion-item>
     <ion-item text-wrap>
       <b>Address</b>
-      <p>
-        {{company.address}}
-      </p>
+      <p>{{company.address}}</p>
     </ion-item>
-    <ion-item>
-      <ion-label><b>Turnover</b></ion-label>
-      <div item-content>
-        {{company.turnover}}
-      </div>
+    <ion-item text-wrap>
+      <b>Turnover</b>
+      <p>{{company.turnover}}</p>
     </ion-item>
-    <ion-item>
-      <ion-label><b>Industry</b></ion-label>
-      <div item-content>
-        {{company.industry}}
-      </div>
+    <ion-item text-wrap>
+      <b>Industry</b>
+      <p>{{company.industry}}</p>
     </ion-item>
-    <ion-item>
-      <ion-label><b>URL</b></ion-label>
-      <div item-content>
-        <a href="{{company.url}}">{{company.url}}</a>
-      </div>
+    <ion-item text-wrap>
+      <b>URL</b>
+      <p><a href="{{company.url}}">{{company.url}}</a></p>
     </ion-item>
   </ion-list>
 </ion-content>
