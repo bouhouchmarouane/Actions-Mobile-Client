@@ -11,13 +11,15 @@ import {CompanyService} from "../services/company.service";
 import {HttpModule} from "@angular/http";
 import {CompaniesPage} from "../pages/companies/companies";
 import {CompanyDetailsPage} from "../pages/company-details/company-details";
+import {NavigationPage} from "../pages/navigation/navigation";
 
 @NgModule({
   declarations: [
     MyApp,
     ListPage,
     CompaniesPage,
-    CompanyDetailsPage
+    CompanyDetailsPage,
+    NavigationPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import {CompanyDetailsPage} from "../pages/company-details/company-details";
     MyApp,
     ListPage,
     CompaniesPage,
-    CompanyDetailsPage
+    CompanyDetailsPage,
+    NavigationPage
   ],
   providers: [
     StatusBar,
