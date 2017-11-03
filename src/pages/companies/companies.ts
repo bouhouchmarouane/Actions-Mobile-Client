@@ -15,12 +15,16 @@ import {CompanyDetailsPage} from "../company-details/company-details";
   selector: 'page-companies',
   templateUrl: 'companies.html',
 })
-export class CompaniesPage {
+export class CompaniesPage{
 
   private companies: Company[];
   private items: Company[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public companyService: CompanyService) {
+
+  }
+
+  ionViewWillEnter (){
     this.companyService.getCompanies()
       .then(response => {
         this.companies = response;
