@@ -27,23 +27,16 @@ export class TagService {
       .catch(this.handleError);
   }
 
-  addTag(label: string) {
-    return this.http.post(tagsUrl, {label: label})
-      .toPromise()
-      .then(response => response.json())
-      .catch(this.handleError);
-  }
-
   deleteTag(id: number) {
     return this.http.delete(tagsUrl + '/' + id)
       .toPromise()
-      .then(() => null)
       .catch(this.handleError);
   }
 
-  tagExists(label: string) {
-    return this.http.get(tagsUrl + '/exists?label=' + label )
-      .map(res => res.json());
+  updateTag(tag: Tag) {
+    return this.http.put(tagsUrl + "/" + tag.id, tag)
+      .toPromise()
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
