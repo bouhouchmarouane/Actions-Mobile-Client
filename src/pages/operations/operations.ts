@@ -22,7 +22,7 @@ export class OperationsPage {
   private sells: Operation[];
   private sellItems: Operation[] = [];
   private buyItems: Operation[] = [];
-  private operation_type: string = 'buys';
+  private operation_type: string;
   private items_scroll = 5;
   @ViewChild(Content) content: Content;
 
@@ -62,7 +62,6 @@ export class OperationsPage {
   }
 
   operation_type_chenged(){
-    console.log('hello');
-    this.content.scrollToTop(0);
+    this.content.scrollToTop();
   }
 }
