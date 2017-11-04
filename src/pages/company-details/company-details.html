@@ -34,6 +34,9 @@
           </button>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-badge color="primary" *ngFor="let t of tags" class="tags-space">{{t.label}}</ion-badge>
+      </ion-row>
     </ion-card-content>
   </ion-card>
   <ion-list>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
+import {Tag} from "../interfaces/tag";
 
 
 const tagsUrl = 'http://localhost:8080/tags';
@@ -19,7 +20,7 @@ export class TagService {
       .catch(this.handleError);
   }
 
-  getTagsByCompany(company_id: number) {
+  getTagsByCompany(company_id: number): Promise<Tag[]> {
     return this.http.get(companiesUrl + '/' + company_id + '/tags')
       .toPromise()
       .then(response => response.json()._embedded.tags)
@@ -30,6 +31,13 @@ export class TagService {
     return this.http.post(tagsUrl, {label: label})
       .toPromise()
       .then(response => response.json())
+      .catch(this.handleError);
+  }
+
+  deleteTag(id: number) {
+    return this.http.delete(tagsUrl + '/' + id)
+      .toPromise()
+      .then(() => null)
       .catch(this.handleError);
   }
 

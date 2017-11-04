@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>tags</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item >
+    </ion-item>
+    <ion-item-sliding *ngFor="let t of tags">
+      <ion-item>
+        {{t.label | titlecase}}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deleteTag(t)">
+          <ion-icon name="close"></ion-icon>
+          Delete
+        </button>
+        <button ion-button color="primary" (click)="updateTag(t)">
+          <ion-icon name="create"></ion-icon>
+          update
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
