@@ -5,10 +5,10 @@
     </button>
     <ion-title>Companies</ion-title>
   </ion-navbar>
+  <ion-searchbar (ionInput)="onSearch($event)" color="primary"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="onSearch($event)" style="position:fixed; bottom:0; z-index: 1000"></ion-searchbar>
   <ion-list>
       <ion-item *ngFor="let c of items" (click)="detailsCompany(c)">
         <ion-avatar item-start>
