@@ -13,6 +13,8 @@ import {CompanyDetailsPage} from "../pages/company-details/company-details";
 import {NavigationPage} from "../pages/navigation/navigation";
 import {TagService} from "../services/tag.service";
 import {TagsPage} from "../pages/tags/tags";
+import {OperationService} from "../services/operation.service";
+import {OperationsPage} from "../pages/operations/operations";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {TagsPage} from "../pages/tags/tags";
     CompaniesPage,
     CompanyDetailsPage,
     NavigationPage,
-    TagsPage
+    TagsPage,
+    OperationsPage
   ],
   imports: [
     BrowserModule,
@@ -37,14 +40,16 @@ import {TagsPage} from "../pages/tags/tags";
     CompaniesPage,
     CompanyDetailsPage,
     NavigationPage,
-    TagsPage
+    TagsPage,
+    OperationsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CompanyService,
-    TagService
+    TagService,
+    OperationService
   ]
 })
 export class AppModule {}

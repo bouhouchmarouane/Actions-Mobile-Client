@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Operations</ion-title>
+  </ion-navbar>
+  <ion-list>
+    <ion-item>
+      <ion-label>Operation type</ion-label>
+      <ion-select [(ngModel)]="operation_type" interface="action-sheet" (ionChange)="operation_type_chenged()">
+        <ion-option value="buys" selected="true">Buys</ion-option>
+        <ion-option value="sells">Sells</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="operation_type == 'buys'">
+    <ion-list no-lines *ngFor="let b of buyItems">
+      <ion-item text-wrap>
+        <b>Date</b>
+        <p>{{b.date_action}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <b>Actions</b>
+        <p>{{b.nb_actions}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <b>Price</b>
+        <p>{{b.price_action | currency}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <b>Total</b>
+        <p>{{b.nb_actions * b.price_action | currency}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="loadOperations('b',$event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+  <div *ngIf="operation_type == 'sells'">
+    <ion-list no-lines *ngFor="let s of sellItems">
+      <ion-item text-wrap>
+        <b>Date</b>
+        <p>{{s.date_action}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <b>Actions</b>
+        <p>{{s.nb_actions}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <b>Price</b>
+        <p>{{s.price_action | currency}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <b>Total</b>
+        <p>{{s.nb_actions * s.price_action | currency}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="loadOperations('b',$event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

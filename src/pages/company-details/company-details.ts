@@ -6,6 +6,7 @@ import {NavigationPage} from "../navigation/navigation";
 import {Tag} from "../../interfaces/tag";
 import {TagService} from "../../services/tag.service";
 import { ToastController } from 'ionic-angular';
+import {OperationsPage} from "../operations/operations";
 
 @Component({
   selector: 'page-company-details',
@@ -62,5 +63,9 @@ export class CompanyDetailsPage {
       position: 'bottom'
     });
     toast.present();
+  }
+
+  goToOperations(){
+    this.navCtrl.push(OperationsPage, {company: this.company});
   }
 }

@@ -19,60 +19,10 @@ export class CompanyService {
       .catch(this.handleError);
   }
 
-  getCompany(id: number) {
-    return this.http.get(companiesUrl + '/' + id)
-      .toPromise()
-      .then(response => response.json())
-      .catch(this.handleError);
-  }
-
   deleteCompany(id: number) {
     return this.http.delete(companiesUrl + '/' + id)
       .toPromise()
       .then(() => null)
-      .catch(this.handleError);
-  }
-
-  removeTagFromCompany(company_id: number, tag_id: number) {
-    return this.http.put(companiesUrl + '/' + company_id + '/' + 'removetag/' + tag_id, this.headers)
-      .toPromise()
-      .then(() => null)
-      .catch(this.handleError);
-  }
-
-  saveCompany(company: Company, tags: Tag[]) {
-    return this.http.post(companiesUrl, company)
-      .map( response => {
-        response.json().tags = tags;
-        return response;
-      })
-  }
-
-  updateCompany(company: Company, tags: Tag[]) {
-    console.log(company);
-    return this.http.post(companiesUrl, company)
-      .map( response => {
-        let company_id = response.json().id;
-        this.removeTagsfromCompany(company_id)
-          .then(response =>
-            this.attachTagsToCompany(company_id, tags)
-              .then(() => null)
-          )
-        return response;
-      })
-  }
-
-  attachTagsToCompany(company_id: number, tags: Tag[]) {
-    return this.http.put(companiesUrl + '/' + company_id + '/attachtags' , tags, this.headers)
-      .toPromise()
-      .then(resp => resp.json())
-      .catch(this.handleError);
-  }
-
-  removeTagsfromCompany(company_id: number) {
-    return this.http.put(companiesUrl + '/' + company_id + '/removeTags', this.headers )
-      .toPromise()
-      .then(resp => resp.json())
       .catch(this.handleError);
   }
 
